@@ -18,7 +18,7 @@
       --surface: #13131F;
       --border: rgba(123,47,190,0.25);
       --text: #F0EEFF;
-      --text-muted: #8B8AA8;
+      --text-muted: #A5A4C0;
       --accent: #F0ABFC;
     }
 
@@ -150,7 +150,7 @@
       gap: 0.4rem;
       padding: 0.45rem 0.9rem;
       border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       font-family: 'DM Mono', monospace;
       color: var(--text-muted);
       text-decoration: none;
@@ -179,7 +179,7 @@
     }
 
     .hero-eyebrow {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       letter-spacing: 0.18em;
       color: var(--teal-light);
       text-transform: uppercase;
@@ -217,7 +217,7 @@
     }
 
     .hero-tagline {
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: var(--text-muted);
       max-width: 420px;
       line-height: 1.7;
@@ -245,7 +245,7 @@
       border: none;
       border-radius: 8px;
       font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       letter-spacing: 0.05em;
       text-decoration: none;
       cursor: none;
@@ -265,7 +265,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       letter-spacing: 0.05em;
       text-decoration: none;
       cursor: none;
@@ -356,7 +356,7 @@
     }
 
     .section-label {
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--purple-light);
@@ -388,6 +388,8 @@
       position: relative;
       overflow: hidden;
       transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     .cooking-card:hover {
       background: var(--surface);
@@ -416,7 +418,7 @@
       margin-bottom: 0.5rem;
     }
     .card-desc {
-      font-size: 0.72rem;
+      font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
     }
@@ -424,8 +426,10 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: 1.2rem;
-      font-size: 0.62rem;
+      margin-top: auto;
+      padding-top: 1.2rem;
+      align-self: flex-start;
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.3rem 0.7rem;
@@ -509,7 +513,7 @@
       margin-bottom: 0.4rem;
     }
     .notify-text p {
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -523,7 +527,7 @@
       gap: 0.5rem;
       padding: 0.7rem 1.4rem;
       border-radius: 8px;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       font-family: 'DM Mono', monospace;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -559,7 +563,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.65rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       letter-spacing: 0.05em;
     }
@@ -576,6 +580,25 @@
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Focus indicators */
+    :focus-visible {
+      outline: 2px solid var(--teal-light);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
     }
 
     /* Responsive */
@@ -602,12 +625,12 @@
   <nav id="nav">
     <a href="/" class="nav-logo">the<span>real</span>deal<span>leal</span></a>
     <div class="nav-links">
-      <a href="https://linkedin.com/in/therealdealleal" target="_blank" class="nav-link" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      <a href="https://linkedin.com/in/therealdealleal" target="_blank" class="nav-link" aria-label="Visit LinkedIn profile (opens in new tab)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="https://substack.com/@therealdealleal" target="_blank" class="nav-link" aria-label="Substack">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v3H4z"/><path d="M4 11h16"/><path d="M4 17l8 4 8-4V11H4z"/></svg>
+      <a href="https://substack.com/@therealdealleal" target="_blank" class="nav-link" aria-label="Visit Substack (opens in new tab)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v3H4z"/><path d="M4 11h16"/><path d="M4 17l8 4 8-4V11H4z"/></svg>
         Substack
       </a>
     </div>
@@ -625,8 +648,8 @@
       <em>Sometimes it's even good.</em>
     </p>
     <div class="hero-cta">
-      <a href="#cooking" class="btn-primary">See what's cooking →</a>
-      <a href="https://substack.com/@therealdealleal" target="_blank" class="btn-ghost">Read my thoughts</a>
+      <a href="#cooking" class="btn-primary" aria-label="Jump to projects section">See what's cooking →</a>
+      <a href="https://substack.com/@therealdealleal" target="_blank" class="btn-ghost" aria-label="Read my thoughts on Substack (opens in new tab)">Read my thoughts</a>
     </div>
 
     <div class="scroll-hint">
@@ -702,12 +725,12 @@
         <p>Follow along on LinkedIn or Substack<br>to be the first to know when things go live.</p>
       </div>
       <div class="notify-links">
-        <a href="https://linkedin.com/in/therealdealleal" target="_blank" class="notify-link notify-link-linkedin">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/therealdealleal" target="_blank" class="notify-link notify-link-linkedin" aria-label="Follow on LinkedIn (opens in new tab)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
-        <a href="https://substack.com/@therealdealleal" target="_blank" class="notify-link notify-link-substack">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v3H4z"/><path d="M4 11h16"/><path d="M4 17l8 4 8-4V11H4z"/></svg>
+        <a href="https://substack.com/@therealdealleal" target="_blank" class="notify-link notify-link-substack" aria-label="Subscribe on Substack (opens in new tab)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v3H4z"/><path d="M4 11h16"/><path d="M4 17l8 4 8-4V11H4z"/></svg>
           Substack
         </a>
       </div>
@@ -723,42 +746,45 @@
   </footer>
 
   <script>
-    // Custom cursor
+    // Custom cursor — disabled for users who prefer reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
 
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
-    });
+    if (!prefersReducedMotion) {
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
+      });
 
-    function animateRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(animateRing);
+      function animateRing() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
+          cursor.style.background = 'var(--purple-light)';
+          ring.style.width = '52px';
+          ring.style.height = '52px';
+          ring.style.borderColor = 'var(--teal-light)';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+          cursor.style.background = 'var(--teal-bright)';
+          ring.style.width = '36px';
+          ring.style.height = '36px';
+          ring.style.borderColor = 'var(--purple-light)';
+        });
+      });
     }
-    animateRing();
-
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(2.5)';
-        cursor.style.background = 'var(--purple-light)';
-        ring.style.width = '52px';
-        ring.style.height = '52px';
-        ring.style.borderColor = 'var(--teal-light)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursor.style.background = 'var(--teal-bright)';
-        ring.style.width = '36px';
-        ring.style.height = '36px';
-        ring.style.borderColor = 'var(--purple-light)';
-      });
-    });
 
     // Nav scroll
     const nav = document.getElementById('nav');
