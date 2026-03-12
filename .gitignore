@@ -1,5 +1,6 @@
 og-generator.html
 generate-og.js
+generate-icons.js
 node_modules/
 package.json
 package-lock.json
