@@ -1,0 +1,15 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking
+    X-Frame-Options = "DENY"
+    # Stop MIME sniffing
+    X-Content-Type-Options = "nosniff"
+    # Force HTTPS for 1 year
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Control referrer info sent to other sites
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Restrict browser features
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';"
