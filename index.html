@@ -395,7 +395,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--purple-light);
+      color: var(--teal-light);
       margin-bottom: 3rem;
       display: flex;
       align-items: center;
@@ -405,7 +405,7 @@
       content: '';
       display: inline-block;
       width: 20px; height: 1px;
-      background: var(--purple-light);
+      background: var(--teal-light);
     }
 
     .cooking-grid {
@@ -542,7 +542,7 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--purple-light), var(--teal-light), transparent);
     }
-    .notify-text h3 {
+    .notify-text h2 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 1.3rem;
@@ -718,6 +718,8 @@
     </div>
   </nav>
 
+  <main>
+
   <!-- Hero -->
   <section class="hero">
     <div class="hero-eyebrow">builder pm · maker · @therealdealleal</div>
@@ -730,7 +732,7 @@
       <em>Sometimes it's even good.</em>
     </p>
     <div class="hero-cta">
-      <a href="#cooking" class="btn-primary" aria-label="Jump to projects section">See what's cooking →</a>
+      <a href="#cooking" class="btn-primary">See what's cooking →</a>
       <a href="https://substack.com/@therealdealleal" target="_blank" class="btn-ghost" aria-label="Read my thoughts on Substack (opens in new tab)">Read my thoughts</a>
     </div>
 
@@ -752,8 +754,8 @@
   </div>
 
   <!-- Coming Soon -->
-  <section class="coming-soon" id="cooking">
-    <div class="section-label">what's in the pot</div>
+  <section class="coming-soon" id="cooking" aria-labelledby="cooking-heading">
+    <h2 id="cooking-heading" class="section-label">what's in the pot</h2>
 
     <div class="cooking-grid">
       <div class="cooking-card">
@@ -800,10 +802,10 @@
   </div>
 
   <!-- Notify -->
-  <section class="notify-section">
+  <section class="notify-section" aria-labelledby="notify-heading">
     <div class="notify-box">
       <div class="notify-text">
-        <h3>Don't miss the drop.</h3>
+        <h2 id="notify-heading">Don't miss the drop.</h2>
         <p>Follow along on LinkedIn or Substack<br>to be the first to know when things go live.</p>
       </div>
       <div class="notify-links">
@@ -818,6 +820,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer>
