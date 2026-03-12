@@ -32,7 +32,13 @@
       font-family: 'DM Mono', monospace;
       min-height: 100vh;
       overflow-x: hidden;
-      cursor: none;
+    }
+    @media (pointer: fine) {
+      body { cursor: none; }
+    }
+
+    @media (pointer: coarse) {
+      .cursor, .cursor-ring { display: none; }
     }
 
     /* Custom cursor */
@@ -421,13 +427,13 @@
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
+      flex: 1;
     }
     .card-status {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: auto;
-      padding-top: 1.2rem;
+      margin-top: 1.2rem;
       align-self: flex-start;
       font-size: 0.75rem;
       letter-spacing: 0.1em;
@@ -601,12 +607,58 @@
       .cursor, .cursor-ring { display: none; }
     }
 
+    /* Hide nav link text on very small screens */
+    @media (max-width: 400px) {
+      .nav-link-text { display: none; }
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
+      /* Reduce horizontal padding across all sections */
+      nav { padding: 1rem 1.25rem; }
+      .hero { padding: 5rem 1.25rem 3rem; }
+      .coming-soon { padding: 4rem 1.25rem; }
+      .notify-section { padding: 3rem 1.25rem 5rem; }
+      .section-divider { padding: 0 1.25rem; }
+      footer { padding: 1.5rem 1.25rem; }
+
+      /* Nav — ensure tap targets are at least 44px tall */
+      .nav-link {
+        padding: 0.6rem 0.75rem;
+        min-height: 44px;
+      }
+
+      /* Cards stack */
       .cooking-grid { grid-template-columns: 1fr; }
+
+      /* Stats hidden on mobile */
       .stats-bar { display: none; }
-      .notify-box { flex-direction: column; }
-      .hero { padding-top: 6rem; }
+
+      /* Buttons go full-width */
+      .hero-cta { flex-direction: column; }
+      .btn-primary, .btn-ghost {
+        width: 100%;
+        text-align: center;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Notify box stacks and has tighter padding */
+      .notify-box {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+      }
+      .notify-links {
+        flex-direction: column;
+        width: 100%;
+      }
+      .notify-link {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+      }
     }
   </style>
 </head>
@@ -627,11 +679,11 @@
     <div class="nav-links">
       <a href="https://linkedin.com/in/therealdealleal" target="_blank" class="nav-link" aria-label="Visit LinkedIn profile (opens in new tab)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
+        <span class="nav-link-text">LinkedIn</span>
       </a>
       <a href="https://substack.com/@therealdealleal" target="_blank" class="nav-link" aria-label="Visit Substack (opens in new tab)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v3H4z"/><path d="M4 11h16"/><path d="M4 17l8 4 8-4V11H4z"/></svg>
-        Substack
+        <span class="nav-link-text">Substack</span>
       </a>
     </div>
   </nav>
@@ -748,11 +800,12 @@
   <script>
     // Custom cursor — disabled for users who prefer reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
 
-    if (!prefersReducedMotion) {
+    if (!prefersReducedMotion && !isTouch) {
       document.addEventListener('mousemove', e => {
         mx = e.clientX; my = e.clientY;
         cursor.style.left = mx + 'px';
